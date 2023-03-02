@@ -9,9 +9,6 @@
 int main(int argc, char **argv)
 {
 
-    if (argc > 1)
-    {
-
         // Primer paso, definir variables
         int fd, fd2, longitud_cliente, puerto;
         puerto = 5000;
@@ -67,11 +64,6 @@ int main(int argc, char **argv)
             close(fd2); /* cierra fd2 */
         }
         close(fd);
-    }
-    else
-    {
-        printf("NO se ingreso el puerto por parametro\n");
-    }
 
     return 0;
 }
