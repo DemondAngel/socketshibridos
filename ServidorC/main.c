@@ -3,6 +3,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <string.h>
+#include <stdlib.h>
 
 // FunciÃ³n principal
 int main(int argc, char **argv)
@@ -13,7 +14,7 @@ int main(int argc, char **argv)
 
         // Primer paso, definir variables
         int fd, fd2, longitud_cliente, puerto;
-        puerto = atoi(argv[1]);
+        puerto = 5000;
 
         // Se necesitan dos estructuras del tipo sockaddr
         // La primera guarda info del server
@@ -47,7 +48,7 @@ int main(int argc, char **argv)
             printf("error en listen()\n");
             exit(-1);
         }
-
+        printf("\n Se creo el socket\n");
         // Paso5, aceptar conexiones
         while (1)
         {
@@ -58,6 +59,8 @@ int main(int argc, char **argv)
                 printf("error en accept()\n");
                 exit(-1);
             }
+            
+            printf("\nSe conectó un cliente\n");
 
             send(fd2, "Bienvenido a mi servidor.\n", 26, 0);
 
