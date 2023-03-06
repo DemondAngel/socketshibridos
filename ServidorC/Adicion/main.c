@@ -65,10 +65,10 @@ void itoa(int value, char* str, int base) {
 // FunciÃ³n principal
 int main(int argc, char **argv)
 {
-
+    if(argc > 1){
         // Primer paso, definir variables
         int fd, fd2, longitud_cliente, puerto;
-        puerto = 5000;
+        puerto = atoi(argv[1]);
 
         // Se necesitan dos estructuras del tipo sockaddr
         // La primera guarda info del server
@@ -134,7 +134,10 @@ int main(int argc, char **argv)
             close(fd2); /* cierra fd2 */
         }
         close(fd);
-
+    }
+    else{
+        printf("NO se ingreso el puerto por parametro\n");
+    }
     return 0;
 }
 	

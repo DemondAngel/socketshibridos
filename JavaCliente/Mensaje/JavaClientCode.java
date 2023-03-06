@@ -12,19 +12,19 @@ class JavaClientCode {
 
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Escribe un mensaje ");
-            // String ip ;
-            // String p;
+            System.out.println("Escribe la direccion IP y el puerto");
+            String ip ;
+            String p;
             String ss;
             int port;
 
-            // ip = br.readLine();
-            // p = br.readLine();
-            // port = Integer.parseInt(p);
-            Socket s = new Socket("192.168.0.13", 5000);
+             ip = br.readLine();
+             p = br.readLine();
+             port = Integer.parseInt(p);
+            Socket s = new Socket(ip,port);
             OutputStream os = s.getOutputStream();
             PrintWriter pw = new PrintWriter(os);
-
+            System.out.println("Escribe un mensaje");
             Scanner in = new Scanner(System.in);
             ss = in.nextLine();
             pw.print(ss);
